@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  contrincante:String[] = ["fas fa-user"];
+  
   title = 'parcial2-app';
 }

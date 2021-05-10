@@ -1,0 +1,67 @@
+*{
+    text-align: center;
+}
+
+.field{
+    display: flex;
+    justify-content: space-around;
+    box-sizing: border-box;
+}
+
+.player{
+    font-size: 8rem;
+    color: rgba(26, 82, 167, 0.5);
+}
+
+.medio{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mov{
+    font-size: 2rem;
+    display: flex;
+    justify-content: space-around;
+}
+
+.mov label:hover{
+    color: lightblue;
+}
+
+.card{
+    background-color: rgba(45, 108, 202, 0.25);
+}
+
+/*tooltip*/
+.tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+  }
+  
+  .tooltip .tooltiptext {
+    visibility: hidden;
+    width: 200px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 150%;
+    left: 50%;
+    margin-left: -60px;
+  }
+  
+  .tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: black transparent transparent transparent;
+  }

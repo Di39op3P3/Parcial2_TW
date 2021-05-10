@@ -1,0 +1,72 @@
+<div class="row" style="margin-top: 2%;">
+
+    <div class="field col-lg-5 col-md-5 col-sm-12">
+        <div class="card border-primary mb-3" style="width: 18rem;">
+            <div class="player">
+                <i class="fas fa-user"></i>
+            </div>
+            <div class="card-header ">YOU</div>
+            <div class="card-body text-primary">
+              <h5 class="card-title">{{aux[movimientos[0]]}}</h5>
+              <div class="mov">
+                <input type="radio" value="1" id="tijeras" [(ngModel)] = "movimientos[0]" required hidden>
+                <label for="tijeras"><i class="fas fa-hand-scissors"></i></label>
+  
+                <input type="radio" value="2" id="piedra" [(ngModel)] = "movimientos[0]" required hidden>
+                <label for="piedra"><i class="fas fa-hand-rock"></i></label>
+  
+                <input type="radio" value="3" id="papel" [(ngModel)] = "movimientos[0]" required hidden>
+                <label for="papel"><i class="fas fa-hand-paper"></i></label>
+              </div>
+              <span class="ayuda"></span>
+              <button type="button" class="btn btn-outline-primary"(click)="partida()" name="mano">Jugar mano</button>
+              <!-- <p>{{ movimientos[0] }}</p> -->
+            </div>
+        </div>
+    </div>
+
+    <div class="medio col-lg-2 col-md-2 col-sm-12" id="mitad" *ngIf="estado===1">
+        <i class="fas fa-times" style="font-size: 12rem;color: lightsteelblue;"></i>
+    </div>
+
+    <div class="medio col-lg-2 col-md-2 col-sm-12" id="mitad" *ngIf="estado===2">
+        <div>
+            <i class="fas fa-thumbs-down" style="font-size: 12rem;color: lightsteelblue;"></i>
+            <span style="font-size: 2rem;color: lightsteelblue;font-weight: bolder;">Perdiste :(</span>
+        </div>
+    </div>
+
+    <div class="medio col-lg-2 col-md-2 col-sm-12" id="mitad" *ngIf="estado===3">
+        <div>
+            <i class="fas fa-thumbs-up" style="font-size: 12rem;color: lightsteelblue;"></i>
+            <span style="font-size: 2rem;color: lightsteelblue;font-weight: bolder;">Ganaste!!!</span>
+        </div>
+    </div>
+
+    <div class="medio col-lg-2 col-md-2 col-sm-12" id="mitad" *ngIf="estado===4">
+        <div>
+            <i class="fas fa-times" style="font-size: 12rem;color: lightsteelblue;"></i>
+            <span style="font-size: 2rem;color: lightsteelblue;font-weight: bolder;">Empate</span>
+        </div>
+    </div>
+
+    <div class="field col-lg-5 col-md-5 col-sm-12">
+        <div class="card border-primary mb-3" style="width: 18rem;">
+            <div class="player">
+                <i class="{{ contrincante[numOponent] }}"></i>
+            </div>
+            <div class="card-header">{{ nombres[numOponent] | uppercase }}</div>
+            <div class="card-body text-primary">
+                <h5 class="card-title">Eligiendo...</h5>
+                <div class="mov">
+                    <i class="{{ eleccion[movimientos[1]] }}" style="font-size: 4rem;"></i>
+                </div>
+                <!-- <p>{{ movimientos[1] }}</p> -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid" *ngIf="estado===3 || estado===2">
+    <button type="button" class="btn btn-outline-danger"(click)="AgregarResultado()">Continuar</button>
+</div>

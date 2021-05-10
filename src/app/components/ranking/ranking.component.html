@@ -1,0 +1,31 @@
+    <div *ngIf="estado===3">
+        <button type="button" class="btn btn-outline-danger"(click)="combatir()">Al combate!!!</button>
+    </div>
+    <!-- <p>{{ numOponent }} y {{ estado }} </p> -->
+    <div class="row" style="margin-top: 2%;" *ngFor="let i of contrincantes;let indice=index">
+    
+        <div class="field col-lg-6 col-md-6 col-sm-12">
+            <div class="card border-primary mb-3" style="width: 18rem;">
+                <div class="player">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="card-header ">YOU</div>
+                <div class="card-body text-primary">
+                  <h5 class="card-title"></h5>
+                </div>
+            </div>
+        </div>
+
+        <div class="field col-lg-6 col-md-6 col-sm-12">
+            <div class="card border-primary mb-3" style="width: 18rem;">
+                <div class="player">
+                    <i class="{{ i }}"></i>
+                </div>
+                <div class="card-header ">{{ nombres[indice] | uppercase }}</div>
+                <div class="card-body text-primary">
+                  <h5 class="card-title">Porcentaje de victorias: {{ vic[indice] | percent }}</h5>
+                  
+                </div>
+            </div>
+        </div>
+    </div>

@@ -1,0 +1,34 @@
+*{
+    text-align: center;
+}
+
+.field{
+    display: flex;
+    justify-content: space-around;
+    box-sizing: border-box;
+}
+
+.player{
+    font-size: 8rem;
+    color: rgba(26, 82, 167, 0.5);
+}
+
+.medio{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mov{
+    font-size: 2rem;
+    display: flex;
+    justify-content: space-around;
+}
+
+.mov label:hover{
+    color: lightblue;
+}
+
+.card{
+    background-color: rgba(45, 108, 202, 0.25);
+}
