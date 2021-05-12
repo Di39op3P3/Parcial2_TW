@@ -2,13 +2,18 @@
     text-align: center;
 }
 
-.field{
+.field-enemy,.field-player{
     display: flex;
     justify-content: space-around;
     box-sizing: border-box;
 }
 
 .player{
+    font-size: 8rem;
+    color: rgba(26, 82, 167, 0.5);
+}
+
+.enemy{
     font-size: 8rem;
     color: rgba(26, 82, 167, 0.5);
 }

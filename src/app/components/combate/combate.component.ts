@@ -1,5 +1,5 @@
 import { Component, OnInit, AfterViewChecked } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { DataService } from 'src/app/services/data.service';
 
 @Component({
   selector: 'app-combate',
@@ -8,25 +8,24 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class CombateComponent implements OnInit, AfterViewChecked {
 
-  auxR:string | null = '';
   numOponent:number = 0;
   estado:number = 1;
+
   aux:String[] = ["Elija su movimiento","Tijeras","Piedra","Papel"];
   movimientos:number[] = [0,0];
   contrincante:string[] = ["fas fa-user","fas fa-user-secret","fas fa-user-tie","fas fa-user-ninja","fas fa-user-astronaut"];
+  
   eleccion:string[] = ["far fa-question-circle" ,"fas fa-hand-scissors", "fas fa-hand-rock", "fas fa-hand-paper"];
   nombres:string[] = ["pedro","pete","miyamoto","perez","jose"];
   
-  constructor(private router: Router, private route: ActivatedRoute) { }
+  constructor( private service: DataService) { }
 
   ngOnInit(): void {
-    this.auxR = this.route.snapshot.paramMap.get('numOponent');
-    this.numOponent = parseInt(this.auxR!);
   }
 
   ngAfterViewChecked(): void {
-    this.auxR = this.route.snapshot.paramMap.get('numOponent');
-    this.numOponent = parseInt(this.auxR!);
+    this.estado = this.service.estadoS;
+    this.numOponent = this.service.numOponentS;
   }
 
   partida(): void{
@@ -37,6 +36,7 @@ export class CombateComponent implements OnInit, AfterViewChecked {
       {
         this.estado = 4;
         this.movimientos[0] = 0;
+        this.service.estadoS = this.estado;
         return;
       }
       else if(
@@ -46,6 +46,7 @@ export class CombateComponent implements OnInit, AfterViewChecked {
         )
       {
         this.estado = 2;
+        this.service.estadoS = this.estado;
       }
       else if(
         ((this.movimientos[0] == 1) && (this.movimientos[1] == 3))
@@ -54,6 +55,7 @@ export class CombateComponent implements OnInit, AfterViewChecked {
         )
       {
         this.estado = 3;
+        this.service.estadoS = this.estado;
       }
 
       document.getElementsByName('mano')[0].setAttribute("style", "visibility: hidden;");
@@ -62,9 +64,5 @@ export class CombateComponent implements OnInit, AfterViewChecked {
       setTimeout(function (){
         document.getElementsByClassName("ayuda")[0].innerHTML = "";}, 3000);
     }
-  }
-
-  AgregarResultado(): void{
-    this.router.navigate(['/ranking',this.estado]);
   }
 }

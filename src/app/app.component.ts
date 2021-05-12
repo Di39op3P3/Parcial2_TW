@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { DataService } from './services/data.service';
 
 @Component({
   selector: 'app-root',
@@ -6,7 +7,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  contrincante:String[] = ["fas fa-user"];
+  
+  constructor ( public service: DataService ){}
   
   title = 'parcial2-app';
 }
